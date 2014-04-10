@@ -9,6 +9,7 @@ import logic
 import loogic
 import foot0
 import doubleTrouble
+import ExampleLogic
 
 # Define some colors
 black    = (   0,   0,   0)
@@ -45,16 +46,18 @@ score = [0,0]
 
 font_color = white
 
-balls = [ Ball([350,250],10,ball)]
+balls = [ Ball([350,220],10,ball)]
 
 """
 balls[0].vx = 10.0
 balls[0].vy = 6.3
 """
-
-
-t1 = [Player([300,200],20,team1, logic.MyLogicDudeSmellMondey(),"Ronaldo"), Player([300,400],20,team1, foot0.GoalKeeper(),"Nikishina"),Player([100,250],20,team1, Logic()) ]
-t2 = [Player([500,200],20,team2, logic.SomeLogic(),"Crazy Pinguin"), Player([500,400],20,team2, logic.MyLogicDudeSmellMondey(),"Messi"),Player([600,250],20,team2, doubleTrouble.DoubleTrouble2(), "Zidan") ]
+#logic.MyLogicDudeSmellMondey()
+#doubleTrouble.DoubleTrouble2()
+# t1 = []
+# t2 = [Player([600,100],20,team2, ExampleLogic.WalkOnDiagonal(),"Crazy Pinguin")]
+t1 = [Player([300,200],20,team1, logic.MyLogicDudeSmellMondey() ,"Ronaldo"), Player([300,400],20,team1, foot0.GoalKeeper(),"Nikishina"),Player([100,250],20,team1, Logic()) ]
+t2 = [Player([600,100],20,team2, logic.SomeLogic(),"Crazy Pinguin"), Player([500,400],20,team2, logic.MyLogicDudeSmellMondey(),"Messi"),Player([600,250],20,team2, doubleTrouble.DoubleTrouble2(), "Zidan") ]
 
 global done
 # -------- Основной цикл программы -----------
