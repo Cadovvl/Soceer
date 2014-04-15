@@ -24,7 +24,7 @@ class Obj:
     centerx = 20.0;
     centery = 20.0;
     R = 10.0;
-    pic = 0;
+    pic = None;
     def __init__(self,pos,size,pic):
         self.R = size
         self.centerx,self.centery = tuple(pos)
