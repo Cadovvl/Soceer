@@ -12,7 +12,9 @@ import time
 
 pygame.init()
 font = pygame.font.Font(pygame.font.get_default_font(), 12)
-done=False
+
+font_score = pygame.font.Font(pygame.font.get_default_font(), 20)
+
 clock=pygame.time.Clock()
 black    = (   0,   0,   0)
 white    = ( 255, 255, 255)
@@ -20,7 +22,7 @@ blue     = (   0,   0, 255)
 green    = (   0, 255,   0)
 red      = ( 255,   0,   0)
 
-class Obj:
+class Obj(object):
     centerx = 20.0;
     centery = 20.0;
     R = 10.0;
@@ -54,6 +56,8 @@ class Ball(Obj):
     def on_move(self):
         self.centerx += self.vx
         self.centery += self.vy
+        self.vx = self.vx*0.95
+        self.vy = self.vy*0.95
 
 class Logic:    
     a=(0,0) 
@@ -106,13 +110,18 @@ class Player(Obj):
 
 
 # board constants 
-lu = [30,30]
-ru = [670,30]
-rb = [670,470]
-lb = [30,470]
+lu = [50,40]
+ru = [950,40]
+rb = [950,600]
+lb = [60,600]
 
-uv = 215
-lv = 285
+uv = 275
+lv = 365
+
+
+score = [0,0]
+score_string = "Score: >>===>  {0} :: {1}  <===<<".format(score[0],score[1])
+score_label = font_score.render(score_string,1,white)
 
 def on_board_objects(t):
     for i in t:
@@ -145,35 +154,32 @@ def on_player_fight(players1,players2):
                     i.cannon(j.vx,j.vy)
                     j.cannon(vx,vy)
        
-def on_victory(b,screen):
-    global done
-    for i in b:
-        if i.centerx + i.vx <= lu[0] and i.vx < 0 and i.centery > uv and i.centery < lv:
-            pygame.event.post(pygame.event.Event(pygame.QUIT))
-            done = True	
-        if i.centerx + i.vx >= rb[0] and i.vx > 0 and i.centery > uv and i.centery < lv:           
-            pygame.event.post(pygame.event.Event(pygame.QUIT))
-            done = True		
 
  
 
 def ask_moves(b,t1,t2):
-    ball_positions = [(i.centerx,i.centery) for i in b]
-    team1_positions = [(i.centerx,i.centery) for i in t1]
-    team2_positions = [(i.centerx,i.centery) for i in t2]
+#    ball_positions = [(i.centerx,i.centery) for i in b]
+#    team1_positions = [(i.centerx,i.centery) for i in t1]
+#    team2_positions = [(i.centerx,i.centery) for i in t2]
     count = 0   
-    for i in t1:
-        try:
-            r = i.logic.move(lu,rb,[uv,lv],count,0,ball_positions,team1_positions,team2_positions)
-            i.move(r[0],r[1])
+    for j in t1:
+        try:            
+            ball_positions = [(i.centerx,i.centery) for i in b]
+            team1_positions = [(i.centerx,i.centery) for i in t1]
+            team2_positions = [(i.centerx,i.centery) for i in t2]
+            r = j.logic.move(lu,rb,[uv,lv],count,0,ball_positions,team1_positions,team2_positions)
+            j.move(r[0],r[1])
         except:
             print "Error while getting move"
         count += 1
     count = 0   
-    for i in t2:
+    for j in t2:
         try:
-            r = i.logic.move(lu,rb,[uv,lv],count,1,ball_positions,team2_positions,team1_positions)
-            i.move(r[0],r[1])
+            ball_positions = [(i.centerx,i.centery) for i in b]
+            team1_positions = [(i.centerx,i.centery) for i in t1]
+            team2_positions = [(i.centerx,i.centery) for i in t2]
+            r = j.logic.move(lu,rb,[uv,lv],count,1,ball_positions,team2_positions,team1_positions)
+            j.move(r[0],r[1])
         except:
             print "Error while getting move"
                 
@@ -185,4 +191,17 @@ def move(objects):
         
         
     
-        
+def technical_error_validator(b,t1,t2):
+    ball_positions = [(i.centerx,i.centery) for i in b]
+    team1_positions = [(i.centerx,i.centery) for i in t1]
+    team2_positions = [(i.centerx,i.centery) for i in t2] 
+    radius = 150
+    # testing side 0
+    
+    # testing side 1
+    
+    
+    
+    
+    
+    
