@@ -44,7 +44,7 @@ team2 = pygame.transform.scale(team2, (40,40))
 
 font_color = white
 
-balls = [ Ball([800,320],10,ball)]
+balls_init = [ Ball([(lu[0] + rb[0])/2,(lu[1] + rb[1])/2],10,ball)]
 
 
 #logic.MyLogicDudeSmellMondey()
@@ -88,9 +88,8 @@ def on_victory(b,screen):
 while score[0] < 3 and score[1] < 3:
     
     t1 = [copy.copy(i) for i in team1]
-    print team1    
-    print t1
-    t2 = [i for i in team2]
+    t2 = [copy.copy(i) for i in team2]
+    balls = [copy.copy(i) for i in balls_init]
     
     while done==False:
     	# ОБРАБОТКА ВСЕХ СОБЫТИЙ ДОЛЖНА БЫТЬ ПОД ЭТИМ КОММЕНТАРИЕМ
