@@ -56,10 +56,10 @@ balls_init = [ Ball([(lu[0] + rb[0])/2,(lu[1] + rb[1])/2],10,ball)]
 ***********************************
 """
 
-#team1 = []
-#team2 = [Player([600,100],20,team2, ExampleLogic.GoToTheCenter(),"Sample Pinguin")]
-team1 = [Player([300,200],20,team1, logic.MyLogicDudeSmellMondey() ,"Ronaldo"), Player([300,400],20,team1, foot0.GoalKeeper(),"Nikishina"),Player([100,250],20,team1, Logic()) ]
-team2 = [Player([600,100],20,team2, logic.SomeLogic(),"Crazy Pinguin"), Player([700,400],20,team2, logic.MyLogicDudeSmellMondey(),"Messi"),Player([600,250],20,team2, doubleTrouble.DoubleTrouble2(), "Zidan") ]
+#team_players1 = []
+#team_players2 = [Player([600,100],20,team2, ExampleLogic.GoToTheCenter(),"Sample Pinguin")]
+team_players1 = [Player([300,200],20,team1, logic.MyLogicDudeSmellMondey() ,"Ronaldo"), Player([300,400],20,team1, foot0.GoalKeeper(),"Nikishina"),Player([100,250],20,team1, Logic()) ]
+team_players2 = [Player([600,100],20,team2, logic.SomeLogic(),"Crazy Pinguin"), Player([700,400],20,team2, logic.MyLogicDudeSmellMondey(),"Messi"),Player([600,250],20,team2, doubleTrouble.DoubleTrouble2(), "Zidan") ]
 
 """
 ***************************************
@@ -87,8 +87,8 @@ def on_victory(b,screen):
 
 while score[0] < 3 and score[1] < 3:
     
-    t1 = [copy.copy(i) for i in team1]
-    t2 = [copy.copy(i) for i in team2]
+    t1 = [copy.copy(i) for i in team_players1]
+    t2 = [copy.copy(i) for i in team_players2]
     balls = [copy.copy(i) for i in balls_init]
     
     while done==False:
