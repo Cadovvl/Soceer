@@ -12,6 +12,7 @@ import doubleTrouble
 import ExampleLogic
 import copy
 import Pillars
+import CirclesOfGood
 
 # Define some colors
 black    = (   0,   0,   0)
@@ -56,9 +57,10 @@ balls_init = [ Ball([(lu[0] + rb[0])/2,(lu[1] + rb[1])/2],10,ball)]
 ###  initialization of players  ###
 ***********************************
 """
-
-team_players1 = []
-team_players2 = [Player([600,100],20,team2, Pillars.P1(),"P1")]
+team_players1 = [Player([400,330],20,team1, CirclesOfGood.P1(),"P1"),Player([275,250],20,team1, CirclesOfGood.P1(),"P2"),Player([275,450],20,team1, CirclesOfGood.P1(),"P3"),Player([150,300],20,team1, CirclesOfGood.P1(),"P4")]
+#team_players2 = [Player([600,330],20,team2, Pillars.P1(),"P1"),Player([725,250],20,team2, Pillars.P2(),"P2"),Player([725,450],20,team2, Pillars.P3(),"P3"),Player([850,300],20,team2, Pillars.P4(),"P4")]
+#team_players1 = [Player([400,330],20,team1, Pillars.P1(),"P1"),Player([275,250],20,team1, Pillars.P2(),"P2"),Player([275,450],20,team1, Pillars.P3(),"P3"),Player([150,300],20,team1, Pillars.P4(),"P4")]
+team_players2 = [Player([600,330],20,team2, Pillars.P1(),"P1"),Player([725,250],20,team2, Pillars.P2(),"P2"),Player([725,450],20,team2, Pillars.P3(),"P3"),Player([850,300],20,team2, Pillars.P4(),"P4")]
 #team_players1 = [Player([300,200],20,team1, logic.MyLogicDudeSmellMondey() ,"Ronaldo"), Player([300,400],20,team1, foot0.GoalKeeper(),"Nikishina"),Player([100,250],20,team1, Logic()) ]
 #team_players2 = [Player([600,100],20,team2, logic.SomeLogic(),"Crazy Pinguin"), Player([700,400],20,team2, logic.MyLogicDudeSmellMondey(),"Messi"),Player([600,250],20,team2, doubleTrouble.DoubleTrouble2(), "Zidan") ]
 
