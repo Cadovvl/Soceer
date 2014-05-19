@@ -47,7 +47,7 @@ class Ball(Obj):
         self.maxvy = maxvy
         
     def  cannon(self,vx,vy):
-        if (self.vx*vx + self.vy*vy < 0):
+        if (self.vx*vx + self.vy*vy <= 0):
             self.vx = -self.vx
             self.vy = -self.vy
         self.vx = self.vx + 2*vx
