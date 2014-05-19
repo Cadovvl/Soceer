@@ -169,8 +169,9 @@ def ask_moves(b,t1,t2):
             team2_positions = [(i.centerx,i.centery) for i in t2]
             r = j.logic.move(lu,rb,[uv,lv],count,0,ball_positions,team1_positions,team2_positions)
             j.move(r[0],r[1])
-        except:
+        except Exception as e:
             print "Error while getting move"
+            print e.message
         count += 1
     count = 0   
     for j in t2:
@@ -180,9 +181,10 @@ def ask_moves(b,t1,t2):
             team2_positions = [(i.centerx,i.centery) for i in t2]
             r = j.logic.move(lu,rb,[uv,lv],count,1,ball_positions,team2_positions,team1_positions)
             j.move(r[0],r[1])
-        except:
+        except Exception as e:
             print "Error while getting move"
-                
+            print e.message
+        
         count += 1
 
 def move(objects):
