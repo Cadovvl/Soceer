@@ -5,17 +5,8 @@ import pygame
 from pygame.locals import *
 import sys
 from game import *
-import logic
-import loogic
-import foot0
-import doubleTrouble
-import ExampleLogic
 import copy
 import time
-
-#import Pillars
-#import CirclesOfGood
-#import Metida
 
 
 # Define some colors
@@ -65,12 +56,68 @@ balls_init = [ Ball([(lu[0] + rb[0])/2,(lu[1] + rb[1])/2],10,ball)]
 ###  initialization of players  ###
 ***********************************
 """
+
+# Metida players
+import Metida
+team_players1 = [Player([400,300],20,team1, Metida.P1(),"P1"),Player([275,250],20,team1, Metida.P2(),"P2"),Player([275,450],20,team1, Metida.P3(),"P3"),Player([150,300],20,team1, Metida.P4(),"P4")]
+#team_players2 = [Player([600,330],20,team2, Metida.P1(),"P1"),Player([725,250],20,team2, Metida.P2(),"P2"),Player([725,450],20,team2, Metida.P3(),"P3"),Player([850,300],20,team2, Metida.P4(),"P4")]
+
+# kinderpingui players
+import kinderpingui
+#team_players1 = [Player([400,300],20,team1, kinderpingui.P1(),"P1"),Player([275,250],20,team1, kinderpingui.P2(),"P2"),Player([275,450],20,team1, kinderpingui.P3(),"P3"),Player([150,300],20,team1, kinderpingui.P4(),"P4")]
+#team_players2 = [Player([600,330],20,team2, kinderpingui.P1(),"P1"),Player([725,250],20,team2, kinderpingui.P2(),"P2"),Player([725,450],20,team2, kinderpingui.P3(),"P3"),Player([850,300],20,team2, kinderpingui.P4(),"P4")]
+
+# Oblivion players
+import Oblivion
+#team_players1 = [Player([400,300],20,team1, Oblivion.P1(),"P1"),Player([275,250],20,team1, Oblivion.P2(),"P2"),Player([275,450],20,team1, Oblivion.P3(),"P3"),Player([150,300],20,team1, Oblivion.P4(),"P4")]
+#team_players2 = [Player([600,330],20,team2, Oblivion.P1(),"P1"),Player([725,250],20,team2, Oblivion.P2(),"P2"),Player([725,450],20,team2, Oblivion.P3(),"P3"),Player([850,300],20,team2, Oblivion.P4(),"P4")]
+
+# pohelge players
+import pohelge
+#team_players1 = [Player([400,300],20,team1, pohelge.P1(),"P1"),Player([275,250],20,team1, pohelge.P2(),"P2"),Player([275,450],20,team1, pohelge.P3(),"P3"),Player([150,300],20,team1, pohelge.P4(),"P4")]
+#team_players2 = [Player([600,330],20,team2, pohelge.P1(),"P1"),Player([725,250],20,team2, pohelge.P2(),"P2"),Player([725,450],20,team2, pohelge.P3(),"P3"),Player([850,300],20,team2, pohelge.P4(),"P4")]
+
+# Spacemonkeys players
+import Spacemonkeys
+#team_players1 = [Player([400,300],20,team1, Spacemonkeys.P1(),"P1"),Player([275,250],20,team1, Spacemonkeys.P2(),"P2"),Player([275,450],20,team1, Spacemonkeys.P3(),"P3"),Player([150,300],20,team1, Spacemonkeys.P4(),"P4")]
+team_players2 = [Player([600,330],20,team2, Spacemonkeys.P1(),"P1"),Player([725,250],20,team2, Spacemonkeys.P2(),"P2"),Player([725,450],20,team2, Spacemonkeys.P3(),"P3"),Player([850,300],20,team2, Spacemonkeys.P4(),"P4")]
+
+# Unko players
+import Unko
+#team_players1 = [Player([400,300],20,team1, Unko.P1(),"P1"),Player([275,250],20,team1, Unko.P2(),"P2"),Player([275,450],20,team1, Unko.P3(),"P3"),Player([150,300],20,team1, Unko.P4(),"P4")]
+#team_players2 = [Player([600,330],20,team2, Unko.P1(),"P1"),Player([725,250],20,team2, Unko.P2(),"P2"),Player([725,450],20,team2, Unko.P3(),"P3"),Player([850,300],20,team2, Unko.P4(),"P4")]
+
+# VIN players
+import VIN
+#team_players1 = [Player([400,300],20,team1, VIN.P1(),"P1"),Player([275,250],20,team1, VIN.P2(),"P2"),Player([275,450],20,team1, VIN.P3(),"P3"),Player([150,300],20,team1, VIN.P4(),"P4")]
+#team_players2 = [Player([600,330],20,team2, VIN.P1(),"P1"),Player([725,250],20,team2, VIN.P2(),"P2"),Player([725,450],20,team2, VIN.P3(),"P3"),Player([850,300],20,team2, VIN.P4(),"P4")]
+
+# Why players
+import Why
+#team_players1 = [Player([400,300],20,team1, Why.P1(),"P1"),Player([275,250],20,team1, Why.P2(),"P2"),Player([275,450],20,team1, Why.P3(),"P3"),Player([150,300],20,team1, Why.P4(),"P4")]
+#team_players2 = [Player([600,330],20,team2, Why.P1(),"P1"),Player([725,250],20,team2, Why.P2(),"P2"),Player([725,450],20,team2, Why.P3(),"P3"),Player([850,300],20,team2, Why.P4(),"P4")]
+
+# WildHamsters players
+import WildHamsters
+#team_players1 = [Player([400,300],20,team1, WildHamsters.P1(),"P1"),Player([275,250],20,team1, WildHamsters.P2(),"P2"),Player([275,450],20,team1, WildHamsters.P3(),"P3"),Player([150,300],20,team1, WildHamsters.P4(),"P4")]
+#team_players2 = [Player([600,330],20,team2, WildHamsters.P1(),"P1"),Player([725,250],20,team2, WildHamsters.P2(),"P2"),Player([725,450],20,team2, WildHamsters.P3(),"P3"),Player([850,300],20,team2, WildHamsters.P4(),"P4")]
+
+# Pillars players
+import Pillars
+#team_players1 = [Player([400,300],20,team1, Pillars.P1(),"P1"),Player([275,250],20,team1, Pillars.P2(),"P2"),Player([275,450],20,team1, Pillars.P3(),"P3"),Player([150,300],20,team1, Pillars.P4(),"P4")]
+#team_players2 = [Player([600,330],20,team2, Pillars.P1(),"P1"),Player([725,250],20,team2, Pillars.P2(),"P2"),Player([725,450],20,team2, Pillars.P3(),"P3"),Player([850,300],20,team2, Pillars.P4(),"P4")]
+
+
+
+
+
+
 #team_players1 = [Player([400,300],20,team1, Metida.P1(),"P1"),Player([275,250],20,team1, Metida.P2(),"P2"),Player([275,450],20,team1, Metida.P3(),"P3"),Player([150,300],20,team1, Metida.P4(),"P4")]
 #team_players2 = [Player([600,330],20,team2, Metida.P1(),"P1"),Player([725,250],20,team2, Metida.P2(),"P2"),Player([725,450],20,team2, Metida.P3(),"P3"),Player([850,300],20,team2, Metida.P4(),"P4")]
 #team_players1 = [Player([400,330],20,team1, Pillars.P1(),"P1"),Player([275,250],20,team1, Pillars.P2(),"P2"),Player([275,450],20,team1, Pillars.P3(),"P3"),Player([150,300],20,team1, Pillars.P4(),"P4")]
 #team_players2 = [Player([600,330],20,team2, Pillars.P1(),"P1"),Player([725,250],20,team2, Pillars.P2(),"P2"),Player([725,450],20,team2, Pillars.P3(),"P3"),Player([850,300],20,team2, Pillars.P4(),"P4")]
-team_players1 = [Player([300,200],20,team1, logic.MyLogicDudeSmellMondey() ,"Ronaldo"), Player([300,400],20,team1, foot0.GoalKeeper(),"Nikishina"),Player([100,250],20,team1, Logic()) ]
-team_players2 = [Player([600,100],20,team2, logic.SomeLogic(),"Crazy Pinguin"), Player([700,400],20,team2, logic.MyLogicDudeSmellMondey(),"Messi"),Player([600,250],20,team2, doubleTrouble.DoubleTrouble2(), "Zidan") ]
+#team_players1 = [Player([300,200],20,team1, logic.MyLogicDudeSmellMondey() ,"Ronaldo"), Player([300,400],20,team1, foot0.GoalKeeper(),"Nikishina"),Player([100,250],20,team1, Logic()) ]
+#team_players2 = [Player([600,100],20,team2, logic.SomeLogic(),"Crazy Pinguin"), Player([700,400],20,team2, logic.MyLogicDudeSmellMondey(),"Messi"),Player([600,250],20,team2, doubleTrouble.DoubleTrouble2(), "Zidan") ]
 
 """
 ***************************************
@@ -229,7 +276,7 @@ while score[0] < 3 and score[1] < 3:
         onP2(lu,rb,[uv,lv],0,t1,balls)        
         onP2(lu,rb,[uv,lv],1,t2,balls)
         
-        onTechnicalIssue()
+#        onTechnicalIssue()
         
         #print P1,P2
         #player's moves
